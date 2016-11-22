@@ -1,21 +1,15 @@
 # TestControlledApis
 
-To start your Phoenix app:
+This example project shows how to avoid calling third party APIs when running tests. In this example
+ we are using [Twilio](https://www.twilio.com) via the [ExTwilio library](https://github.com/danielberkompas/ex_twilio) in order to add
+ SMS related features.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+To run this you need to add 3 environment variables in order to run the Twilio service:
+  TWILIO_ACCOUNT_SID
+  TWILIO_AUTH_TOKEN
+  TWILIO_PHONE_NUMBER
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+You can get all 3 by setting up a account at Twilio. Once you do that, run `mix test` and you should
+  see print statements showing how when running a test the Twilio API calls are avoided.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
-# test_controlled_apis
+If you do a simple curl request you should see a actual text message sent, `curl -X GET http://localhost:4000`
